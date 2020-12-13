@@ -4,21 +4,18 @@
 
 int main()
 {
-    int n = 4;
-    WeatherCalendar Cal(n);
-    Weather *a1 = new Weather(1, "qw", "qd", 2, 5, 5);
-    Weather *a2 = new Weather(3, "qw", "qdr", 2, 5, 5);
-    Weather *a3 = new Weather(3, "qw", "qttd", 34, 5, 5);
-    Weather *a4 = new Weather(2, "qw", "qde", 2, 5, 5);
+    int weather_number = 4;
+    WeatherCalendar Cal(weather_number);
+    Weather *weather1 = new Weather(1, "Lviv", "qd", 17, 94, 0);
+    Weather *weather2 = new Weather(3, "Oslo", "qdr", 25, 57, 7);
+    Weather *weather3 = new Weather(3, "Toronto", "qttd", 12, 25, 15);
+    Weather *weather4 = new Weather(2, "Hanover", "qde", 7, 11, 22);
 
-    Cal.AddWeather(a1);
-    Cal.AddWeather(a2);
-    Cal.AddWeather(a3);
-    Cal.AddWeather(a4);
+    Cal.AddWeather(weather1);
+    Cal.AddWeather(weather2);
+    Cal.AddWeather(weather3);
+    Cal.AddWeather(weather4);
 
-    findMaxTemperature(Cal.getWeathers(), 3);
-       
-
-    a3->isLvivWeather(89, RAINY);
-    std::cout << "Hello World!\n";
+    FindMaxTemperature(Cal.GetWeathers(), 3);
+    weather3->IsLvivWeather(89, RAINY);
 }

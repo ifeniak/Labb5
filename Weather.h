@@ -1,10 +1,9 @@
 #pragma once
 #include "string"
-#include "iostream"
 
 using namespace std;
 
-enum TYPE
+enum Type
 {
 	SUNNY,
 	CLOUDY,
@@ -14,6 +13,7 @@ enum TYPE
 
 class Weather
 {
+
 private:
 	int day;
 	string city;
@@ -22,8 +22,10 @@ private:
 	int humidity;
 	int wind_speed;
 
-	TYPE type;
+	Type type;
+
 public:
+
 	Weather() {}
 	Weather(int day, string city, string country, int temp, int humidity, int wind_speed)
 	{
@@ -33,16 +35,16 @@ public:
 		this->temp = temp;
 		this->humidity = humidity;
 		this->wind_speed = wind_speed;
- 	}
+	}
 	~Weather() {};
-	int getDay(void);
-	string getCity(void);
-	string getCountry(void);
-	int getTemp(void);
-	int getHumidity(void);
-	int getWind_speed(void);
-	
-	void isLvivWeather(int humidity, int type);
-	friend void findMaxTemperature(Weather** weather, int day);
+	int GetDay(void);
+	string GetCity(void);
+	string GetCountry(void);
+	int GetTemp(void);
+	int GetHumidity(void);
+	int GetWind_speed(void);
+
+	void IsLvivWeather(int humidity, int type);
+	friend void FindMaxTemperature(Weather** weather, int day);
 	friend void SortByDay(Weather** arr, int len);
 };

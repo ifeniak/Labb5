@@ -1,33 +1,34 @@
 #include "Weather.h"
+#include <iostream>
 #define ON 1
 #define OFF 0
 
-int Weather::getDay(void)
+int Weather::GetDay(void)
 {
 	return day;
 }
-string Weather::getCity(void)
+string Weather::GetCity(void)
 {
 	return city;
 }
-string Weather::getCountry(void)
+string Weather::GetCountry(void)
 {
 	return country;
 }
-int Weather::getTemp(void)
+int Weather::GetTemp(void)
 {
 	return temp;
 }
-int Weather::getHumidity(void)
+int Weather::GetHumidity(void)
 {
 	return humidity;
 }
-int Weather::getWind_speed(void)
+int Weather::GetWind_speed(void)
 {
 	return wind_speed;
 }
 
-void Weather::isLvivWeather(int humidity, int type)
+void Weather::IsLvivWeather(int humidity, int type)
 {
 	if (humidity > 80 && type == RAINY)
 		cout << "The typical day in Lviv" << endl;
@@ -35,7 +36,7 @@ void Weather::isLvivWeather(int humidity, int type)
 		cout << "You're lucky, man" << endl;
 }
 
-void findMaxTemperature(Weather** weathers, int day)
+void FindMaxTemperature(Weather** weathers, int day)
 {
 	int amount = 0;
 	Weather** ptr = weathers;
@@ -49,15 +50,15 @@ void findMaxTemperature(Weather** weathers, int day)
 	int checker = OFF;
 	for (int i = 0; i < amount; i++)
 	{
-		if (weathers[i]->getDay() == day)
+		if (weathers[i]->GetDay() == day)
 		{
 			if (checker == OFF)
 			{
 				checker = ON;
-				temp = weathers[i]->getTemp();
+				temp = weathers[i]->GetTemp();
 			}
-			else if (weathers[i]->getTemp() > temp)
-				temp = weathers[i]->getTemp();
+			else if (weathers[i]->GetTemp() > temp)
+				temp = weathers[i]->GetTemp();
 		}
 	}
 	if (checker)
@@ -66,13 +67,13 @@ void findMaxTemperature(Weather** weathers, int day)
 		cout << "No data" << endl;
 }
 
-void  SortByDay(Weather** arr, int len)
+void  SortByDay(Weather** arr, int length)
 {
-	for (int i = 1; i < len; i++)
+	for (int i = 1; i < length; i++)
 	{
-		for (int j = 0; j < len - i; j++)
+		for (int j = 0; j < length - i; j++)
 		{
-			if (arr[j]->getDay() < arr[j + 1]->getDay())
+			if (arr[j]->GetDay() < arr[j + 1]->GetDay())
 			{
 				Weather* temp = arr[j];
 				arr[j] = arr[j + 1];
@@ -81,5 +82,3 @@ void  SortByDay(Weather** arr, int len)
 		}
 	}
 }
-
-
